@@ -7,6 +7,7 @@
 
   <bean id="mappingRepositoryAdapter"
         class="de.fisch3r.couchdbdemo.MappingRepositoryAdapter">
+        <property name="documentUrl" value="http://127.0.0.1:5984/liste/6c98b56d168ee1d28807a7e442000124" />
   </bean>
-
+  
 </beans>

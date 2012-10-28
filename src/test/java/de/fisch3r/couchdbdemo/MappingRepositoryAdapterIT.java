@@ -13,6 +13,8 @@ import org.testng.annotations.Test;
 @ContextConfiguration(locations="classpath:/spring/test-context.xml")
 public class MappingRepositoryAdapterIT extends AbstractTestNGSpringContextTests {
 	
+	private static final String DEFINED_MAP_KEY = "Öl";
+	
 	@Autowired
 	private MappingRepositoryAdapter adapter;
 	
@@ -22,5 +24,10 @@ public class MappingRepositoryAdapterIT extends AbstractTestNGSpringContextTests
 		assertThat(map.entrySet(), not(empty()));
 	}
 	
+	@Test
+	public void fetchMapReturnsMapWithDefinedKey() {
+		Map<String,String> map = adapter.fetchMap();
+		assertThat(map, hasKey(DEFINED_MAP_KEY));		
+	}
 
 }
